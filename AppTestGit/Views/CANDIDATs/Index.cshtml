@@ -9,67 +9,77 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.nom)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.prénom)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.mail)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.telephone)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.niveau)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.experience)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.dernier_employeur)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.cv_employeur)
-        </th>
-        <th></th>
-    </tr>
+<table class="table" id="candidat">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.prénom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.telephone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.niveau)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.experience)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dernier_employeur)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cv_employeur)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.nom)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.prénom)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.mail)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.telephone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.niveau)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.experience)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.dernier_employeur)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cv_employeur)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.matricule }) |
-            @Html.ActionLink("Details", "Details", new { id=item.matricule }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.matricule })
-        </td>
-    </tr>
-}
-
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.prénom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.mail)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.telephone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.niveau)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.experience)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dernier_employeur)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cv_employeur)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.matricule }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.matricule }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.matricule })
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
+@section scripts
+{
+<script>
+    $(document).ready(function () { $("#candidat").DataTable() })
+</script>
+}
