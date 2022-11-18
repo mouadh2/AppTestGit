@@ -123,5 +123,9 @@ namespace AppTestGit.Controllers
             }
             base.Dispose(disposing);
         }
+        //public string PrintMessage()
+        //{
+        //    return 
+        //}
     }
 }
