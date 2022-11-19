@@ -11,7 +11,8 @@ namespace AppTestGit
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Web;
+
     public partial class CANDIDAT
     {
         public int matricule { get; set; }
@@ -23,5 +24,6 @@ namespace AppTestGit
         public int experience { get; set; }
         public string dernier_employeur { get; set; }
         public string cv_employeur { get; set; }
+        public HttpPostedFileBase CvFile {get; set;}
     }
 }

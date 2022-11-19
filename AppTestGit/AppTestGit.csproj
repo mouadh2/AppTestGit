@@ -454,6 +454,7 @@
     <Content Include="Views\CANDIDATs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="CV\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

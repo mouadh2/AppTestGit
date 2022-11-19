@@ -36,6 +36,7 @@ namespace AppTestGit.Controllers
         }
 
         // GET: CANDIDATs/Create
+        
         public ActionResult Create()
         {
             return View();
@@ -46,16 +47,24 @@ namespace AppTestGit.Controllers
         // plus de détails, consultez https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "matricule,nom,prénom,mail,telephone,niveau,experience,dernier_employeur,cv_employeur")] CANDIDAT cANDIDAT)
+        
+        public ActionResult Create(CANDIDAT cANDIDAT)
         {
             if (ModelState.IsValid)
+
             {
                 db.CANDIDAT.Add(cANDIDAT);
+                //creation de repertoire
+                string folderName = Server.MapPath("~/CV");
+                //creation de sous-reperoitre avec le nom et le prenom du candidat
+                string pathString = System.IO.Path.Combine(folderName, cANDIDAT.nom +" " + cANDIDAT.prénom);
+                System.IO.Directory.CreateDirectory(pathString);
+                cANDIDAT.CvFile.SaveAs(pathString);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             return View(cANDIDAT);
+
         }
 
         // GET: CANDIDATs/Edit/5
@@ -123,9 +132,5 @@ namespace AppTestGit.Controllers
             }
             base.Dispose(disposing);
         }
-        //public string PrintMessage()
-        //{
-        //    return 
-        //}
     }
 }
